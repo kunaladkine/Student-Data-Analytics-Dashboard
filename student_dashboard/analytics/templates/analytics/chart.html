@@ -1,0 +1,23 @@
+{% extends "analytics/base.html" %}
+{% block content %}
+
+<h3 class="mb-3">📊 Student Performance Chart</h3>
+
+{% if error %}
+<div class="alert alert-danger">{{ error }}</div>
+{% else %}
+<div class="text-center mb-4">
+    <img src="data:image/png;base64,{{ chart }}" class="img-fluid border rounded shadow">
+</div>
+{% endif %}
+
+<hr>
+
+<!-- Navigation Buttons -->
+<div class="d-flex gap-2">
+    <a href="{% url 'upload_data' %}" class="btn btn-primary">📁 Upload New File</a>
+    <a href="{% url 'statistics' %}" class="btn btn-success">📈 View Statistics</a>
+    <a href="{% url 'dashboard' %}" class="btn btn-secondary">🏠 Back to Dashboard</a>
+</div>
+
+{% endblock %}

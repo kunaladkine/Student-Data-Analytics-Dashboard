@@ -1,0 +1,55 @@
+{% extends "analytics/base.html" %}
+{% block content %}
+
+<h2 class="text-center mb-4 fw-bold">🎓 Student Analytics Dashboard</h2>
+<p class="text-center text-muted mb-5">Upload data, view statistics, and analyze performance easily</p>
+
+<div class="row g-4">
+
+    <!-- Upload CSV -->
+    <div class="col-md-4">
+        <div class="card shadow-sm h-100 border-0">
+            <div class="card-body text-center p-4">
+                <h3>📁</h3>
+                <h5 class="fw-bold mb-3">Upload Data</h5>
+                <p class="text-muted">Upload a CSV file to get started with analysis.</p>
+                <a href="{% url 'upload_data' %}" class="btn btn-primary w-100">Upload CSV</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- View Statistics -->
+    <div class="col-md-4">
+        <div class="card shadow-sm h-100 border-0">
+            <div class="card-body text-center p-4">
+                <h3>📈</h3>
+                <h5 class="fw-bold mb-3">View Statistics</h5>
+                <p class="text-muted">Check averages, highs & lows, and data trends.</p>
+                <a href="{% url 'statistics' %}" class="btn btn-success w-100">View Statistics</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- View Chart -->
+    <div class="col-md-4">
+        <div class="card shadow-sm h-100 border-0">
+            <div class="card-body text-center p-4">
+                <h3>📊</h3>
+                <h5 class="fw-bold mb-3">Performance Chart</h5>
+                <p class="text-muted">Visualize student results in a graph.</p>
+                <a href="{% url 'chart' %}" class="btn btn-info w-100 text-white">View Chart</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<hr class="my-5">
+
+<!-- Footer / Additional Info -->
+<div class="text-center mb-4">
+    <h5 class="fw-bold">✨ Tips to Use</h5>
+    <p class="text-muted">Start by uploading a CSV file. Then navigate to statistics or chart.</p>
+</div>
+
+{% endblock %}

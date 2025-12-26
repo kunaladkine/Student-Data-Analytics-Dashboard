@@ -1,0 +1,29 @@
+{% extends "analytics/base.html" %}
+{% block content %}
+
+<h3 class="mb-3">📂 Upload Student CSV File</h3>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="input-group mb-3">
+        <input type="file" name="csv_file" class="form-control" required>
+        <button class="btn btn-primary" type="submit">Upload</button>
+    </div>
+</form>
+
+{% if df %}
+<h4>📄 Uploaded Data</h4>
+<div class="table-responsive">
+    {{ df|safe }}
+</div>
+<hr>
+
+<!-- New Buttons After Upload -->
+<div class="mt-4 d-flex gap-2">
+    <a href="{% url 'statistics' %}" class="btn btn-success">📈 View Statistics</a>
+    <a href="{% url 'chart' %}" class="btn btn-info text-white">📊 View Chart</a>
+    <a href="{% url 'dashboard' %}" class="btn btn-secondary">🏠 Back to Dashboard</a>
+</div>
+{% endif %}
+
+{% endblock %}
